@@ -1,2 +1,2 @@
-# elijahbai.github.io
-blog
+# personal blog
+目前还没做好
