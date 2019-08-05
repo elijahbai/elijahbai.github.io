@@ -1,6 +1,6 @@
 ---
 layout : post
-title: "my first blog"
+title: "搭建个人博客1"
 date: 2019-08-05
 tag: 博客
 ---
