@@ -275,7 +275,7 @@ post:
       unit: 次
     copyright: '<i class="fab fa-creative-commons"></i> <a rel="license" href="//creativecommons.org/licenses/by-sa/4.0/deed.zh">BY-SA 4.0</a>（除特别声明或转载文章外）'
   reward:
-    enable: false
+    enable: true
     text: 结束
     img: # 万一真的有人打赏呢~
     - id: wechat
