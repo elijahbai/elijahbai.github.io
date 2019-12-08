@@ -1,6 +1,6 @@
 ---
 layout: index
-title: 我是小白QWQ
+title: Hello
 ---
 
 ## Contact
