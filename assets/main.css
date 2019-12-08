@@ -1,0 +1,30 @@
+html {
+    font-family: sans-serif;
+    -ms-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%
+}
+
+body {
+    margin: 0
+}
+body {
+    font-family: "PixelMPlus-10", "Helvetica Neue", 'Hiragino Kaku Gothic ProN', Meiryo, fantasy, Verdana, Roboto, "Droid Sans", "游ゴシック", YuGothic, sans-serif;
+    font-size: 12px;
+    line-height: 1.25;
+    letter-spacing: .025em;
+    word-break: break-word;
+    color: #231815;
+    background-color: #fff
+}
+
+#px {
+    position: fixed;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    z-index: -2;
+    background-color: #fff
+}
+

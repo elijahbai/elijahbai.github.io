@@ -1,94 +1,40 @@
 ---
 layout: page
-title: About
-permalink: /About/
-feature-img: "img/touring.jpg"
+title: 关于我 
 ---
 
-# Fengzhichu Theme
+一个 计算机专业的学生，喜欢研究一些新技术。
 
-A jekyll theme for personal blog which based on [Type theme](https://github.com/rohanchandra/type-theme) and [ibireme's blog](http://blog.ibireme.com). Add several useful features. Fengzhichu Theme is powered by [Jekyll](http://jekyllrb.com/) and freely
-hosted in [Github pages](https://pages.github.com/).
+平时喜欢逛github，搞些小玩意娱乐。
 
-## How to use it
+了解kali linux和Python简单的用法
 
-* Star & Fork the [repo](https://github.com/fengzhichu/fengzhichu-theme).
-* Rename repo as 'yourusername.github.io'.
-* You can delete gh-pages branch if you want.
-* Clone your <b>master branch</b> to local directory.
-* Custom the '_config.yml' to your style.
-* Run jekyll serve -w.
+# 关于博客
 
-## Customization
+这个博客是参照[sslogan666.github.io](https://github.com/sslogan666/sslogan666.github.io/)修改的，修改了头像效果，背景图片，主页色调，感谢**leopardpan.github.io**提供经验
 
-### _config.yml
+如果你也想搭建和我一样的博客，可以参考我的整个搭建过程
 
-Some important configurations.
+整个过程并非一帆风顺，遇到很多问题，最终在网上找到解决办法，感谢所有提供经验的网友
 
-* imageurl: Randomly change image which display on top of site.
-  * By default image changes everytime when open your site or reflash it. If you want to change image daily or weekly, just append '/daily' or 'weekly' to imageurl.
-* title: Display on browse tab.
-* hometitle: The first menu name of navigation bar.
-* yoursitetitle: Your LOGO place here.
-* visiblewords: Number of words which you want to display in post of homepage.
-* sechby:
-  * category: "Posted in" #Words before Category name.
-  * tag: "with" #Words before Tag name.
-  * example: Posted in 'Category name' with 'Tag name'.
+我在我的搭建过程中详细描述了我遇到的问题和解决方法，希望对想搭建自己博客的朋友提供一点帮助
 
-### Tags
+有关于博客问题和意见都可以在[github](https://github.com/elijahbai/elijahbai.github.io)上提出，如果我知道我会第一时间回复
 
-Add new tag.
+我也刚入门，大家一起学习，分享经验
 
-* Annotate your post entry front-matter block as usual:
+让我们一起来打造一个精美的主题吧~ 
 
-```
-        ---
-        layout: post
-        title: How To Use Tags And Categories On GitHub Pages Without Plugins
-        category: programming
-        tags: [github, github-pages, jekyll]
-        ---
-```
+博客源码在 [github](https://github.com/elijahbai/elijahbai.github.io)上，欢迎你使用我的模板，按照自己的意愿修改成自己的博客
 
-* Add an entry in your _data/tags.yml for every tag.
+你的 Star 是我更新的动力，谢谢~
 
-```
-        - slug: github-pages
-          name: GitHub Pages
-```
+<p> 
 
-* Create a .md file which name is your Tag slug for every tag.
+<p> 
 
-```
-        ---
-        layout: blog_by_tag
-        tag: github-pages
-        permalink: /blog/tag/github-pages/
-        ---
-```
+<p> 
 
-###Categories
-Similar as Tags.
 
-## Thanks
+{% include comments.html %}
 
-* Theme template: [type-theme](https://github.com/rohanchandra/type-theme)
-* Navigation bar: [ibireme's blog](http://blog.ibireme.com)
-* Features of Tag and Category: [HOW TO USE TAGS AND CATEGORIES ON GITHUB PAGES WITHOUT PLUGINS](http://www.minddust.com/post/tags-and-categories-on-github-pages/)
-
-## Enjoy
-
-- If you like, please star it. Thank you!
-- Enjoy it!
-
-## Copyright & License
-
-Copyright (C) 2015 - Released under the MIT License.
-
-Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
-NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE. 
