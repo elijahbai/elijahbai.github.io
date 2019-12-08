@@ -1,5 +1,46 @@
 <!DOCTYPE html>
 <html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="googlebot" content="noindex, nofollow">
+    <script type="application/javascript">
+        function JSRunTrace() {
+            window.parent.postMessage(["log", Array.prototype.join.call(arguments, ", ")], "*");
+            console.log(arguments);
+        }
+        listeners = (function (_this) {
+            return function (event) {
+                var data, eventName;
+                eventName = event.data[0];
+                data = event.data[1];
+                switch (eventName) {
+                    case "eval":
+                        var result;
+                        try {
+                            result = eval(data);
+                        } catch (e) {
+                            result = e.toString();
+                        }
+                        JSRunTrace(result);
+                        break;
+                }
+            };
+        })(this);
+
+        window.onerror = function(errorMessage ){
+            JSRunTrace(errorMessage);
+        };
+        window.addEventListener("message", listeners, false);
+    </script>
+
+    <script type="text/javascript" src=""></script>
+    <script type="text/javascript" src="//cdns.jsrun.net/js/jsdata.js?v=20170507"></script>
+    <style type="text/css">
+
+    </style>
+
+</head>
 
   {% include head.html %}
 
@@ -34,54 +75,113 @@
     </div>
     
     {% include external.html %}
-    
+    <canvas id="canvas" width="1210" height="853"></canvas>
+<script type="application/javascript">//<![CDATA[
+var canvas = document.getElementById("canvas");
+var ctx = canvas.getContext("2d");
+var cWidth,cHeight;
+resize();
+window.onresize = resize;
+function resize() {
+    cWidth = canvas.width = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+    cHeight = canvas.height = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
+}
+// 鼠标活动时，获取鼠标坐标
+var mouse = {x: null, y: null, max: 20000};
+window.onmousemove = function(e) {
+    e = e || window.event;
+    mouse.x = e.clientX;
+    mouse.y = e.clientY;
+};
+window.onmouseout = function(e) {
+    mouse.x = null;
+    mouse.y = null;
+};
+// 添加粒子
+// x，y为粒子坐标，moveX, moveY为粒子xy轴加速度，max为连线的最大距离
+var dots = [];
+for (var i = 0; i < 300; i++) {
+    var x = Math.random() * cWidth;
+    var y = Math.random() * cHeight;
+    var moveX = Math.random() * 2 - 1;
+    var moveY = Math.random() * 2 - 1;
+    dots.push({
+        x: x,
+        y: y,
+        moveX: moveX,
+        moveY: moveY,
+        max: 6000
+    })
+}
+// 延迟100秒开始执行动画，如果立即执行有时位置计算会出错
+setTimeout(function() {
+    animate();
+}, 100);
+// 每一帧循环的逻辑
+function animate() {
+    ctx.clearRect(0, 0, cWidth, cHeight);
+    // 将鼠标坐标添加进去，产生一个用于比对距离的点数组
+    var allDots = [mouse].concat(dots);
+    dots.forEach(function(dot) {
+        // 粒子位移
+        dot.x += dot.moveX;
+        dot.y += dot.moveY;
+        // 遇到边界将加速度反向
+        dot.moveX *= (dot.x > cWidth || dot.x < 0) ? -1 : 1;
+        dot.moveY *= (dot.y > cHeight || dot.y < 0) ? -1 : 1;
+        // 绘制点
+        ctx.fillRect(dot.x - 0.5, dot.y - 0.5, 1, 1);
+        // 循环比对粒子间的距离
+        for (var i = 0; i < allDots.length; i++) {
+            var tempDot = allDots[i];
+            if (dot === tempDot || tempDot.x === null || tempDot.y === null) continue;
+            var _x = dot.x - tempDot.x;
+            var _y = dot.y - tempDot.y;
+            // 两个粒子之间的距离
+            var dis = _x * _x + _y * _y;
+            // 距离比
+            var ratio;
+            // 如果两个粒子之间的距离小于粒子对象的max值，则在两个粒子间画线
+            if (dis < tempDot.max) {
+                // 如果是鼠标，则让粒子向鼠标的位置移动
+                if (tempDot === mouse && dis > (tempDot.max / 2)) {
+                    dot.x -= _x * 0.03;
+                    dot.y -= _y * 0.03;
+                }
+                // 计算距离比
+                ratio = (tempDot.max - dis) / tempDot.max;
+                // 画线
+                ctx.beginPath();
+                ctx.lineWidth = ratio / 2;
+                ctx.strokeStyle = 'rgba(0,0,0,' + (ratio + 0.2) + ')';
+                ctx.moveTo(dot.x, dot.y);
+                ctx.lineTo(tempDot.x, tempDot.y);
+                ctx.stroke();
+            }
+        }
+        // 将已经计算过的粒子从数组中删除
+        allDots.splice(allDots.indexOf(dot), 1);
+    });
+    setTimeout(function() {
+        animate();
+    }, 1000/60);
+}
+//]]>
+</script>
+<script>
+    if (window.parent && window.parent.parent) {
+        var height = document.body.clientHeight;
+        height = height > 180 ? height : 180;
+        height += 50;
+        window.parent.parent.postMessage(["resultsFrame", {
+            height: height,
+            slug: "bAgKp"
+        }], "*")
+    }
+</script>
 
-        <!–.浮动小人–>
-        <script type=“text/javascript”>
-        <?php if(is_home()) echo ‘var isindex=true;var title=””;’;else echo ‘var isindex=false;var title=”‘, get_the_title(),‘”;’; ?>
-        <?php if((($display_name = wp_get_current_user()->display_name) != null)) echo ‘var visitor=”‘,$display_name,‘”;’; else if(isset($_COOKIE[‘comment_author_’.COOKIEHASH])) echo ‘var visitor=”‘,$_COOKIE[‘comment_author_’.COOKIEHASH],‘”;’;else echo ‘var visitor=”游客”;’;echo “\n”; ?>
-        </script>
-        <script type=“text/javascript” src=“http://www.qianxixian.cn/xiaoren/spig.js”></script>
-        <style>
-        .spig
-        {
-        display:block;
-        width:200px;
-        height:300px;
-        position:absolute;
-        bottom: 300px;left:160px;z–index:9999;
-        }
-        #message
-        {
-        color :#191919;border: 1px solid #c4c4c4;background:#ddd;
-        –moz–border–radius:5px;
-        –webkit–border–radius:5px;
-        border–radius:5px;
-        min–height:1em;
-        padding:5px;
-        top:-45px;
-        position:absolute;
-        text–align:center;
-        width:auto !important;z–index:10000;
-        –moz–box–shadow:0 0 15px #eeeeee;
-        –webkit–box–shadow:0 0 15px #eeeeee;
-        border–color:#eeeeee;
-        box–shadow:0 0 15px #eeeeee;
-        outline:none;
-        }
-        .mumu
-        {
-        width:200px;
-        height:300px;
-        cursor: move;
-        background:url(https://www.bigbai.fun/xiaoren/spig.png) no-repeat;
-        }
-        </style>
-        <div id=“spig” class=“spig”>
-        <div id=“message”>加载中……</div>
-        <div id=“mumu” class=“mumu”></div>
-        </div>
-        <!–.end浮动小人–>
+
+       
 
 
   </body>
