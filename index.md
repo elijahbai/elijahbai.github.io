@@ -10,7 +10,7 @@ title: 我是小白QWQ
   - **1309993158@qq.com**
   - **elijahbai0321@gmail.com**
 - QQ: **1309993158**
-- Blog: **<www.bigbai.fun>**
+- Blog: **www.bigbai.fun**
 
 ## Education
 
