@@ -1,73 +1,311 @@
-# Basic
+markdown: kramdown
+kramdown:
+  input: GFM # Github Flavored Markdown
+  math_engine: katex # 防止行间公式渲染错误
+permalink: /posts/:categories/:title # 博文目录
+baseurl: "" # 假如你的博客是建在某个目录下的，请在这里加上目录名，并且下面配置的所有链接里的`/public`前也要加，即`/your_baseurl/public`。这一项结尾不要有'/'
+
 title: 我是小白QWQ
-subtitle: 个人博客
-description: Welcome ^v^
-url: "http://elijahbai.github.io"
+url: www.bigbai.fun
+author: 小白
 
-# Comment
-comment:
-    #disqus: leopard
-    # gitment: xxx // 需要修改 comments.html中的client_id和client_secret
-    # uyan: 2143225  # 有言id,登录有言官网申请
+head: # 删改前确定知道自己在做什么
+- tag: meta # Enable responsiveness on mobile devices
+  var:
+  - key: name
+    value: viewport
+  - key: content
+    value: width=device-width, initial-scale=1.0, maximum-scale=1
+- tag: meta
+  var:
+  - key: http-equiv
+    value: X-UA-Compatible
+  - key: content
+    value: IE=edge
+- tag: meta
+  var:
+  - key: http-equiv
+    value: content-type
+  - key: content
+    value: 'text/html; charset=utf-8'
+- tag: meta # google站点验证
+  var:
+  - key: name
+    value: google-site-verification
+  - key: content
+    value: YIKi1rBnyUaS-DMYiluseI5kZzTwjCkTFmKkSkMZDJk
+- tag: meta # baidu站点验证
+  var:
+  - key: name
+    value: baidu-site-verification
+  - key: content
+    value: bEFDJ1LvXb
+- tag: meta # yandex站点验证
+  var:
+  - key: name
+    value: yandex-verification
+  - key: content
+    value: 52253e02830b443c
+- tag: link
+  var:
+  - key: rel
+    value: profile
+  - key: href
+    value: //gmpg.org/xfn/11
+- tag: link # rss
+  var:
+  - key: rel
+    value: alternate
+  - key: href
+    value: /atom.xml
+  - key: title
+    value: RSS
+  - key: type
+    value: application/rss+xml
+- tag: link # 网站大图标，我偷懒直接用gravatar了，也可以存在/public里面
+  var:
+  - key: rel
+    value: apple-touch-icon-precomposed
+  - key: href
+    value: //gravatar.loli.net/avatar/a12c5fff23dde00df79af9aca4e7b6e4?d=wavatar&s=144
+- tag: link # 小图标，同上
+  var:
+  - key: rel
+    value: 'shortcut icon'
+  - key: href
+    value: //gravatar.loli.net/avatar/a12c5fff23dde00df79af9aca4e7b6e4?d=wavatar&s=32
+- tag: link # 下面是博客的css，有些插件的css是单独在插件里引用的，假如需要自己的css可以仿照去加在后面。无脑cdn加速了。
+  var:
+  - key: rel
+    value: stylesheet
+  - key: href
+    value: //cdn.jsdelivr.net/gh/poole/lanyon@ac85a3115c094b3e6cb92cc41771e98b443f6c5d/public/css/poole.min.css #指定版本号，因为默认版本更新不及时
+- tag: link
+  var:
+  - key: rel
+    value: stylesheet
+  - key: href
+    value: //cdn.jsdelivr.net/gh/poole/lanyon@ac85a3115c094b3e6cb92cc41771e98b443f6c5d/public/css/syntax.min.css
+- tag: link
+  var:
+  - key: rel
+    value: stylesheet
+  - key: href
+    value: //cdn.jsdelivr.net/gh/poole/lanyon@ac85a3115c094b3e6cb92cc41771e98b443f6c5d/public/css/lanyon.min.css
+- tag: link
+  var:
+  - key: rel
+    value: stylesheet
+  - key: href
+    value: /public/css/wu-kan.css
+- tag: link
+  var:
+  - key: rel
+    value: stylesheet
+  - key: href
+    value: //cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css # 在https://fontawesome.com/icons 查看支持的图标
+#- tag: link
+#  var:
+#  - key: rel
+#    value: stylesheet
+#  - key: href
+#    value: https://fonts.loli.net/css?family=PT+Serif:400,400italic,700%7CPT+Sans:400 # 字库
 
-# Social
-social:
-    #weibo: 5366874726 
-    github: elijahbai
-    # zhihu: panpanleopard
-    # juejin: xxx
-    #jianshu: 2ada30d8d0f7
-    # twitter: 
-    #csdn: Loganojx
-    #cnblogs: sslogan
-    mail: 1309993158@qq.com
+body:
+  theme-base: theme-base-0d # 可选的值08~0f
+  layout-reverse: true # 开启后sidebar在右边，反之左边
+  sidebar-overlay: true # 开启后正文不随sidebar移动而移动
 
+script: # 需要在正文前调用的脚本或者插件的autoloader
+- var:
+  - key: src
+    value: //cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js # jQuery
+#- var:
+#  - key: size
+#    value: "90" #  the size of ribbon
+#  - key: alpha
+#    value: "0.6" # the opacity of line (0 ~ 1)
+#  - key: zIndex
+#    value: "-1"
+#  - key: src
+#    value: //cdn.jsdelivr.net/npm/ribbon.js/dist/ribbon.min.js # 彩带背景
+#- var:
+#  - key: color
+#    value: "0,0,0" # 线段颜色，RGB三色
+#  - key: pointColor
+#    value: "0,0,0" # 端点颜色，RGB三色
+#  - key: opacity
+#    value: "1" # 透明度
+#  - key: count
+#    value: "31" # 粒子数量
+#  - key: zIndex
+#    value: "-1"
+#  - key: src
+#    value: //cdn.jsdelivr.net/npm/canvas-nest.js/dist/canvas-nest.js
+- var:
+  - key: src
+    value: //cdn.jsdelivr.net/gh/stevenjoezhang/live2d-widget/autoload.js # live2d
+- var:
+  - key: src
+    value: //cdn.jsdelivr.net/gh/wu-kan/wu-kan.github.io@1788f1b6c2e12cca626b85f25749f99ca0c7aad0/public/js/mermaid.js
+  - key: js
+    value: //cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js
+  - key: stylesheet
+    value: //cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.css
+  - key: markdown_expand
+    value: true
+- var:
+  - key: src
+    value: //cdn.jsdelivr.net/gh/wu-kan/wu-kan.github.io@1788f1b6c2e12cca626b85f25749f99ca0c7aad0/public/js/prism.js
+#- var: mathjax
+#  - key: src
+#    value: //cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML
+- var:
+  - key: src
+    value: /public/js/katex.js
+  - key: js
+    value: //cdn.jsdelivr.net/npm/katex/dist/katex.min.js
+  - key: auto_render
+    value : //cdn.jsdelivr.net/npm/katex/dist/contrib/auto-render.min.js
+  - key: stylesheet
+    value: //cdn.jsdelivr.net/npm/katex/dist/katex.min.css
+  - key: delimiters  # 开启行内公式$\KaTeX$支持
+    value: true
+- var:
+  - key: src
+    value: //cdn.jsdelivr.net/gh/wu-kan/wu-kan.github.io@1788f1b6c2e12cca626b85f25749f99ca0c7aad0/public/js/baidu_push.js
 
-# 百度统计 
-# 使用博客模板请去掉或者更换 id 
-baidu:
-    id: xxxx  
+sidebar:
+  avatar: # 侧边栏显示的头像
+    enable: true
+    img: //gravatar.loli.net/avatar/a12c5fff23dde00df79af9aca4e7b6e4?d=wavatar&s=600 # 头像的地址
+    info: <br/>SYSU17级在读<br/>计科超算方向<br/>永远喜欢水野爱<br/>田宫例四驱车<br/>ASC # 头像背后的信息
+  description: '<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=100% height=52 src="//music.163.com/outchain/player?type=0&id=155059595&auto=0&height=32"></iframe>'
+  social:
+  - title: rss
+    href: /atom.xml
+    class: 'fas fa-rss fa-fw'
+  - title: wu.kan@foxmail.com # email
+    href: mailto:wu.kan@foxmail.com
+    class: 'fas fa-envelope fa-fw'
+  - title: github
+    href: //github.com/wu-kan
+    class: 'fab fa-github fa-fw'
+  - title: WuK # codeforces
+    href: //codeforces.com/profile/WuK
+    class: 'fas fa-chart-bar fw'
+  - title: WuK # vjudge
+    href: //vjudge.net/user/WuK
+    class: 'fas fa-smile fa-fw'
+  - title: 942759535 # qq
+    class: 'fab fa-qq fa-fw'
+  - title: Wu-_-Kan # weixin
+    class: 'fab fa-weixin fa-fw'
+  - title: zhihu
+    href: //www.zhihu.com/people/wu.kan/activities
+    class: 'fab fa-zhihu fa-fw'
+  nav:
+  - title: '<i class="fas fa-home fa-fw"></i> 首页'
+    href: /
+  - title: '<i class="fab fa-readme fa-fw"></i> 关于'
+    href: /about
+  - title: '<i class="fas fa-comments fa-fw"></i> 留言'
+    href: /comments
+  - title: '<i class="fas fa-tags fa-fw"></i> 标签'
+    href: /tags
+  - title: '<i class="fas fa-archive fa-fw"></i> 归档'
+    href: /archive
+  simple_jekyll_search:
+    enable: true
+    autoloader: /public/simple-jekyll-search/autoloader.js
+    stylesheet: //cdn.jsdelivr.net/gh/wu-kan/wu-kan.github.io@1788f1b6c2e12cca626b85f25749f99ca0c7aad0/public/simple-jekyll-search/search_box.min.css
+    src: //cdn.jsdelivr.net/npm/simple-jekyll-search/dest/simple-jekyll-search.min.js
+    placeholder: 搜索博文
+    json: /public/simple-jekyll-search/search.json
+  jekyll_table_of_contents:
+    enable: true
+    autoloader: //cdn.jsdelivr.net/gh/wu-kan/wu-kan.github.io@1788f1b6c2e12cca626b85f25749f99ca0c7aad0/public/js/jekyll_table_of_contents.min.js
+  busuanzi:
+    enable: true
+    src: //cdn.jsdelivr.net/npm/busuanzi/bsz.pure.mini.min.js
+    page_pv: # 页面访问量
+      alert: <i class="fas fa-eye fa-fw"></i>
+      unit: 次
+    site_pv: # 站点访问量
+      alert: <i class="fas fa-paw fa-fw"></i>
+      unit: 枚
+    site_uv: # 访客量
+      alert: <i class="fas fa-user-friends fa-fw"></i>
+      unit: 人
+  last_edit:
+    enable: true
+    alert: <i class="fas fa-user-edit fa-fw"></i>
+  run_time:
+    enable: true
+    src: /public/js/run_time.js
+    start_time: '10/04/2017 11:03:56' # 这是我第一篇CSDN博客的时间
+    alert: <i class="fas fa-cog fa-spin fa-fw"></i>
+    day: 天
+    hour: 时
+    minute: 分
+    second: 秒
+  copyright:
+    enable: true
+    text: '<script async defer src="https://buttons.github.io/buttons.js"></script><a class="github-button" aria-label="Star wu-kan/wu-kan.github.io on GitHub" href="https://github.com/wu-kan/wu-kan.github.io" data-icon="octicon-star" data-show-count="true">Star</a>'
 
-# Google Analytics
-# 使用博客模板请去掉或者更换 id
-ga:
-    id: xxxx  
-    host: auto  
+index:
+  showtag:
+  - 人生经验
+  - ICPC模板
+  - 水野爱
 
+post:
+  meta:
+    enable: true
+    date: true
+    wordcount:
+      enable: true
+      unit: 字
+    readtime:
+      enable: true
+      unit: 分
+      divided_by: 300
+    visitor: # 需要开启valine的visitor选项使之开始计数; 可能会和busuanzi统计的有出入
+      enable: true
+      unit: 次
+    copyright: '<i class="fab fa-creative-commons"></i> <a rel="license" href="//creativecommons.org/licenses/by-sa/4.0/deed.zh">BY-SA 4.0</a>（除特别声明或转载文章外）'
+  reward:
+    enable: true
+    text: 如果这篇博客帮助到你，可以请我喝一杯咖啡~
+    img: # 万一真的有人打赏呢~
+    - id: wechat
+      src: //cdn.jsdelivr.net/gh/wu-kan/wu-kan.github.io@1788f1b6c2e12cca626b85f25749f99ca0c7aad0/public/image/wechatpay.jpg
+    - id: wechatappreciate
+      src: //cdn.jsdelivr.net/gh/wu-kan/wu-kan.github.io@1788f1b6c2e12cca626b85f25749f99ca0c7aad0/public/image/wechatappreciate.jpg
+    - id: qq
+      src: //cdn.jsdelivr.net/gh/wu-kan/wu-kan.github.io@1788f1b6c2e12cca626b85f25749f99ca0c7aad0/public/image/qqpay.jpg
+    - id: alipay
+      src: //cdn.jsdelivr.net/gh/wu-kan/wu-kan.github.io@1788f1b6c2e12cca626b85f25749f99ca0c7aad0/public/image/alipay.jpg
 
-# 《----------------- 上面的信息修改成你自己的 ---------------------------》
-#
-#
-#  _post/ 下的文章更换成你自己的文章
-#  帮忙star一下，感谢~😆 地址： https://github.com/elijahbai/elijahbai.github.io
-#
-#
-# 《--------------- 下面的信息可以自行选择是否修改 ------------------------》
+valine:
+  enable: true
+  autoloader: /public/js/valine.js
+  src: //cdn.jsdelivr.net/npm/valine
+  appId: 9hABRddSuEkTgqLrt1VSK5B1-gzGzoHsz
+  appKey: NJ7RwmgrxsF7KDzlqU7YewlL
+  notify: true # 评论回复邮件提醒
+  verify: true # 验证码服务
+  avatar: identicon
+  placeholder: 在这里评论吧！
+  visitor: true # 文章访问量统计
+  highlight: true # 代码高亮
+  avatarForce: false # 每次访问强制拉取最新的评论列表头像
+  recordIP: true # 记录评论者IP
 
-
-permalink: /:year/:month/:title/
-# Format
-highlighter: rouge
-
-textColor: #FF0000
-
-# supported colors: blue, green, purple, red, orange or slate,lightblue. If you need clear, leave it empty.
-cover_color: lightblue
-
-# The blog button should not be removed.
-blog_button:
-    title: 博客主页
-
-# Navigation buttons in the front page.s
-nav:
-    - {title: 所有文章, description: archive, url: '/archive'}   
-    - {title: 分类, description: tags, url: '/tags'}      
-    - {title: 关于我, description: about, url: '/about'}      
-    
-
-# Pagination
-plugins: [jekyll-paginate,jekyll-sitemap]
-paginate: 20
-paginate_path: "page/:num/"
-
-
+page404:
+  search_children: # 腾讯公益
+    enable: true
+    src: //qzonestyle.gtimg.cn/qzone/hybrid/app/404/search_children.js
+    charset: utf-8
+    homePageUrl: '/'
+    homePageName: 回到我的主页
